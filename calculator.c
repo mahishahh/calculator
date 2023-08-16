@@ -19,10 +19,11 @@ double factorial(int n) {
     return result;
 }
 
-double custom_sin(double x) {
+
+double custom_trigo(double x, int trigType) {
     double sum = 0.0;
     for (int i = 0; i <= MAX_TERMS; i++) {
-        int powerOfX = 2 * i + 1;
+        int powerOfX = 2 * i + trigType;
         double termPow = power(x, powerOfX);
 
         double term;
@@ -37,22 +38,12 @@ double custom_sin(double x) {
     return sum;
 }
 
+double custom_sin(double x) {
+    return custom_trigo(x,1);
+}
+
 double custom_cos(double x) {
-    double sum = 0.0;
-    for (int i = 0; i <= MAX_TERMS; i++) {
-        int powerOfX = 2 * i;
-        double termPow = power(x, powerOfX);
-
-        double term;
-        if (i % 2 == 0) {
-            term = termPow / factorial(powerOfX);
-        } else {
-            term = -termPow / factorial(powerOfX);
-        }
-        sum += term;
-    }
-
-    return sum;
+   return custom_trigo(x,0);
 }
 
 double custom_exp(double x) {
