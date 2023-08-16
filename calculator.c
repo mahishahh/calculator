@@ -69,7 +69,7 @@ int main() {
     char op;
     double value;
 
-    printf("Enter an operator (+, -, *, /, sin, cos, exp): ");
+    printf("Enter an operator (+, -, *, /, s for sin, c for cos, e for exp): ");
     scanf(" %c", &op);
 
     switch (op) {
